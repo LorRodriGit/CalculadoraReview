@@ -8,7 +8,7 @@ import javax.swing.JPanel;
 
 public class PanelBotonera extends JPanel{
 
-	JButton[] numerico=new JButton[12];
+	JButton[] numerico=new JButton[10];
 	JButton [] operadores=new JButton[12];
 	JButton btComa,btTotal,btRetroceso,btDividir,btMMAs, btMult,butSqrt,btMMenos,btSuma,btResta,btMC
 			,btAC,btMasMenos,btMR;
@@ -22,6 +22,12 @@ public class PanelBotonera extends JPanel{
 		 crearPanelBotonera();
 	}
 
+	private void crearNumeradores() {
+		for (int i = 0; i <= 9; i++) {
+			numerico[i]=new JButton(String.valueOf(i));
+		}
+		
+	}
 
 	private void crearOperadores() {
 		btRetroceso=new JButton("◄");
@@ -62,7 +68,7 @@ public class PanelBotonera extends JPanel{
 	private void aniadirOperadores() {
 		panelOperadores=new JPanel();
 		panelOperadores.setLayout(new GridLayout(4, 3,4,4));
-		for (int i = 0; i < operadores.length; i++) {
+		for (int i = operadores.length; i < 0 ; i++) {
 			panelOperadores.add(operadores[i]);
 		}
 		this.add(panelOperadores);
@@ -75,6 +81,7 @@ public class PanelBotonera extends JPanel{
 		for (int i = 0; i < numerico.length; i++) {
 			panelNumerico.add(numerico[i]);
 		}
+		
 		btComa=new JButton(".");
 		 btTotal=new JButton("=");
 		panelNumerico.add(btComa);
@@ -83,10 +90,4 @@ public class PanelBotonera extends JPanel{
 	}
 
 
-	private void crearNumeradores() {
-		for (int i = 0; i < 11; i++) {
-			numerico[i]=new JButton(" "+i);
-		}
-		
-	}
 }
